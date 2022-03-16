@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"  >
+<head>
+  <script async defer type="text/javascript" th:src="@{/assets/script.js}" ></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Technical needs -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- To support IE8 and IE9 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Control layout on mobile -->
+
+    <title>MyResto - Se créer un compte</title>
+    <meta name="description" content="Bah ouais Moray, il faut se créer un compte pour commander.">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#141414">
+    <meta name="locale" content="en_US">
+    <meta name="keywords" content="keyword, keyword">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="thumbnail" content=""/><!-- The image visible in search results -->
+  
+    <meta name="robots" content="index, follow, all" />
+  
+    <link rel="manifest" href="manifest.json"> <!-- Link to the manifest.json -->
+    <link rel="canonical" href="">
+    <link rel="shortcut icon shortcut apple-touch-icon apple-touch-icon-precomposed" type="image/png" href="/img/logos/logo.png">
+  
+    <!-- For sharing purposes -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="" /><!-- On peut ajouter plusieurs types -->
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="1234.com">
+    <meta property="og:image" content="" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="630" />
+  
+    <meta property="fb:app_id" content=""><!-- Doesnt do anything -->
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+  
+    <!-- Styles -->
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" />
+    <!-- External Libraries DN'ai eue S -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google Fonts for the fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Font Awesome for the icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+  
+    <base href="/">
+    <meta name="google-site-verification" content="" />
+    <script src="" async defer></script>
+  
+    <!-- <meta http-equiv="refresh" content="3"> -->
+    <script src='/cdn-cgi/bm/cv/669835187/api.js' async defer ></script></head>
+  <body class="scrollbar-ok">
+  
+    <header th:insert=" fragments/header :: header"></header>
+  
+    <main>
+            <div class="main_container--form">
+                <h1>S'inscrire</h1>
+                <div class="_col-12" th:if="${session.error}">
+                    <span class="error-handler" th:text="${session.error}"></span>
+                </div>
+                <form class="_row" th:action="@{/user/save}" th:object="${user}" method="post">
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Nom</label>
+                        <input type="text" class="form-java_input _col-12" th:field="*{lastname}">
+                    </div>
+        
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Prénom</label>
+                        <input type="text" class="form-java_input _col-12" th:field="*{firstName}">
+                    </div>
+        
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Mot de passe</label>
+                        <input type="password" class="form-java_input _col-12" th:field="*{password}">
+                    </div>
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Confirmer votre mot de passe</label>
+                        <input type="password" class="form-java_input _col-12" th:field="*{password}">
+                    </div>
+        
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Adresse</label>
+                        <input type="text" class="form-java_input _col-12" th:field="*{address}">
+                    </div>
+        
+                    <div class="form-java_container _row _col-6 _col-sm-12">
+                        <label class="form-java_label _col-12">Email</label>
+                        <input type="text" class="form-java_input _col-12" th:field="*{username}">
+                    </div>
+                    <div class="_col-12 button-handler">
+                        <button onclick="document.getElementById('menu').scrollIntoView();" class="button--big button-double"
+                                type="submit">S'inscrire
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <nav th:replace=" fragments/navbarMobile :: navMobile"></nav>
+        <footer th:replace=" fragments/footer :: footer"></footer>
+      
+      </body>
+      </html>

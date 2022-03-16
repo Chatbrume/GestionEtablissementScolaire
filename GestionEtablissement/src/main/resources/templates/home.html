@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <script async defer type="text/javascript" th:src="@{/assets/script.js}" ></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Technical needs -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- To support IE8 and IE9 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Control layout on mobile -->
+
+    <title>MyResto - Notre passion, votre papilles</title>
+    <meta name="description" content="MyResto, est un restaurant incroyable avec vue sur la Tour Eiffel et sur le Taj Mahal.">
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#141414">
+    <meta name="locale" content="en_US">
+    <meta name="keywords" content="keyword, keyword">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="thumbnail" content=""/><!-- The image visible in search results -->
+  
+    <meta name="robots" content="index, follow, all" />
+  
+    <link rel="manifest" href="manifest.json"> <!-- Link to the manifest.json -->
+    <link rel="canonical" href="">
+    <link rel="shortcut icon shortcut apple-touch-icon apple-touch-icon-precomposed" type="image/png" th:src="@{/assets/images/favicon.ico}" 
+  
+    <!-- For sharing purposes -->
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="" /><!-- On peut ajouter plusieurs types -->
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="">
+    <meta property="og:site_name" content="1234.com">
+    <meta property="og:image" content="" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="630" />
+  
+    <meta property="fb:app_id" content=""><!-- Doesnt do anything -->
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+  
+    <!-- Styles -->
+    <link th:href="@{/assets/styles.css}" rel="stylesheet" />
+    <!-- External Libraries DN'ai eue S -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <!-- Google Fonts for the fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Font Awesome for the icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.0/css/all.css">
+  
+    <base href="/">
+    <meta name="google-site-verification" content="" />
+    <script src="" async defer></script>
+  
+    <!-- <meta http-equiv="refresh" content="3"> -->
+    <script src='/cdn-cgi/bm/cv/669835187/api.js' async defer ></script></head>
+  <body class="scrollbar-ok">
+  
+    <header th:insert=" fragments/header :: header"></header>
+  
+    <main>
+        <!-- Si nécessaire -->
+        <div th:replace="fragments/cart :: div"></div>
+        
+        <div class="main_container--top" th:style="'background:linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)), url(' + @{/assets/images/nourritures/pizza-background.jpg} + ');background-repeat: no-repeat;background-size: cover;background-attachment: fixed;background-position:cover;'">
+            <div class="centered-div">
+                <h1>Envie de manger du sale</h1>
+                <span>Venez découvrir nos recettes de pizza au véritable fromage suisse.</span>
+                <div class="_col-12">
+                    <button onclick="document.getElementById('menu').scrollIntoView();"
+                            class="button--big button-double ">
+                        Voir la carte
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="main_container--auto main_container--service">
+            <div class="_row">
+                <h2 class="_col-12 text-color-reverse">Services</h2>
+                <div class="card-icon _col-4 _col-sm-12">
+                    <div class="card-icon_icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3 class="card-icon_title">Une équipe à votre écoute</h3>
+                    <div class="card-icon_text"><p>L'équipe de MyResto est à votre disposition complète. Notre objectif
+                        est
+                        de vous fournir la meilleur expérience gustative possible.</p></div>
+                </div>
+                <div class="card-icon _col-4 _col-sm-12">
+                    <div class="card-icon_icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="card-icon_title">Recettes traditionnelles</h3>
+                    <div class="card-icon_text"><p>Les recettes de notre restaurant viennent tout droit du bon terroir
+                        français, une bonne grosse cave dans le 93. Seine-saint-Denis style.</p></div>
+                </div>
+                <div class="card-icon _col-4 _col-sm-12">
+                    <div class="card-icon_icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3 class="card-icon_title">Convivialité</h3>
+                    <div class="card-icon_text"><p>La convivialité du restaurant étant un élément primordiale à nous
+                        yeux,
+                        nous vous demandons de bien vouloir prendre des commandes à emporter, et rester le moins
+                        possible
+                        sur place. Gardez votre covid pour vous bande de sans-culottes.</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="main_container main_container--menu" id="menu">
+            <div class="_row">
+                <h2 class="_col-12">Menu</h2>
+                <div class="nav-food _col-12 _row">
+                    <div>
+                        <a id="nav-1" class="nav-food_link"
+                           onclick="document.getElementById('menu-1').scrollIntoView();">Entrées</a>
+                    </div>
+                    <div>
+                        <a id="nav-2" class="nav-food_link"
+                           onclick="document.getElementById('menu-2').scrollIntoView();">Plats</a>
+                    </div>
+                    <div>
+                        <a id="nav-3" class="nav-food_link"
+                           onclick="document.getElementById('menu-3').scrollIntoView();">Desserts</a>
+                    </div>
+                    <div>
+                        <a id="nav-4" class="nav-food_link"
+                           onclick="document.getElementById('menu-4').scrollIntoView();">Boissons</a>
+                    </div>
+                </div>
+    
+                <div class="carousel-food _row">
+                    <h3 id="menu-1" class="_col-12 carousel-food_title">Entrées</h3>
+                    <th:block th:each="entree : ${entrees}">
+                        <div class="carousel-food_item _col-3 _col-md-4 _col-sm-12">
+                            <div class="carousel-food_item_image-container">
+                                <img th:src="@{/assets/images/nourritures/}+${entree.picture}"
+                                     th:alt="${entree.picture}">
+                            </div>
+                            <h4 th:text="${entree.name}"></h4>
+                            <div class="carousel-food_item_text-container">
+                                <span th:text="${entree.price}+€"></span>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('USER')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${entree.id})}"-->
+                                        <button class="button-round" th:onclick="'add_product('+${entree.id}+');'">
+                                            <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                        </button>
+                                    <!--/a-->
+                                </div>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('GERANT')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${entree.id})}"-->
+                                    <button class="button-round"  style="cursor: not-allowed">
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                    <!--/a-->
+                                </div>
+                                <a  th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                                    <button class="button-round"  th:href="@{/login}" >
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </th:block>
+    
+                    <h3 id="menu-2" class="_col-12 carousel-food_title">Plats</h3>
+                    <th:block th:each="plat : ${plats}">
+                        <div class="carousel-food_item _col-3 _col-md-4 _col-sm-12">
+                            <div class="carousel-food_item_image-container">
+                                <img th:src="@{/assets/images/nourritures/}+${plat.picture}" th:alt="${plat.picture}">
+                            </div>
+                            <h4 th:text="${plat.name}"></h4>
+                            <div class="carousel-food_item_text-container">
+                                <span th:text="${plat.price}+€"></span>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('USER')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${plat.id})}"-->
+                                        <button class="button-round" th:onclick="'add_product('+${plat.id}+');'">
+                                            <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                        </button>
+                                    <!--/a-->
+                                </div>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('GERANT')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${entree.id})}"-->
+                                    <button class="button-round"  style="cursor: not-allowed">
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                    <!--/a-->
+                                </div>
+                                <a  th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                                    <button class="button-round"  th:href="@{/login}" >
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </th:block>
+    
+    
+                    <h3 id="menu-3" class="_col-12 carousel-food_title">Desserts</h3>
+                    <th:block th:each="dessert : ${desserts}">
+                        <div class="carousel-food_item _col-3 _col-md-4 _col-sm-12">
+                            <div class="carousel-food_item_image-container">
+                                <img th:src="@{/assets/images/nourritures/}+${dessert.picture}"
+                                     th:alt="${dessert.picture}">
+                            </div>
+                            <h4 th:text="${dessert.name}"></h4>
+                            <div class="carousel-food_item_text-container">
+                                <span th:text="${dessert.price}+€"></span>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('USER')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${dessert.id})}"-->
+                                        <button class="button-round" th:onclick="'add_product('+${dessert.id}+');'">
+                                            <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                        </button>
+                                    <!--/a-->
+                                </div>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('GERANT')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${entree.id})}"-->
+                                    <button class="button-round"  style="cursor: not-allowed">
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                    <!--/a-->
+                                </div>
+                                <a  th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                                    <button class="button-round"  th:href="@{/login}" >
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </th:block>
+    
+                    <h3 id="menu-4" class="_col-12 carousel-food_title">Boissons</h3>
+                    <th:block th:each="boisson : ${boissons}">
+                        <div class="carousel-food_item _col-3 _col-md-4 _col-sm-12">
+                            <div class="carousel-food_item_image-container">
+                                <img th:src="@{/assets/images/nourritures/}+${boisson.picture}"
+                                     th:alt="${boisson.picture}">
+                            </div>
+                            <h4 th:text="${boisson.name}"></h4>
+                            <div class="carousel-food_item_text-container">
+                                <span th:text="${boisson.price}+€"></span>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('USER')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${boisson.id})}"-->
+                                        <button class="button-round" th:onclick="'add_product('+${boisson.id}+');'">
+                                            <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                        </button>
+                                    <!--/a-->
+                                </div>
+                                <div sec:authorize="isAuthenticated() && hasAuthority('GERANT')">
+                                    <!--a th:href="@{/addProductShoppingCard/{id}(id=${entree.id})}"-->
+                                    <button class="button-round"  style="cursor: not-allowed">
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                    <!--/a-->
+                                </div>
+                                <a  th:href="@{/login}" sec:authorize="!isAuthenticated()">
+                                    <button class="button-round"  th:href="@{/login}" >
+                                        <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </th:block>
+                </div>
+            </div>
+        </div>
+        <div class="main_container--auto">
+            <div class="_row">
+                <h2 class="_col-12 text-color-reverse">Avis des clients</h2>
+                <div class="_row">
+                    <div class="card-opinion _col-6 _col-sm-12">
+                        <div class="card-opinion_image-container">
+                            <img th:src="@{/assets/images/humains/image.jpg}" alt="jeanne-julienne">
+                        </div>
+                        <div class="triangle"></div>
+                        <div class="card-opinion_text-container">
+                            <p class="text-color-reverse">Le service était incroyablement bien et généreux et parfait et
+                                superbe c'était le meilleur truc au monde de ma vie de la Terre.</p>
+                            <h3 class="text-color-reverse">Jeanne-Julienne</h3>
+                        </div>
+                    </div>
+                    <div class="card-opinion _col-6 _col-sm-12 scroll">
+                        <div class="card-opinion_image-container">
+                            <img th:src="@{/assets/images/humains/image (1).jpg}" alt="jeanne-julienne">
+                        </div>
+                        <div class="triangle"></div>
+                        <div class="card-opinion_text-container">
+                            <p class="text-color-reverse">C'est la meilleure chose qui me soit arrivé de ma vie, ça en
+                                dit
+                                long sur à quelle point ma vie est nulle.</p>
+                            <h3 class="text-color-reverse">Paul-Antoine</h3>
+                        </div>
+                    </div>
+                    <div class="card-opinion _col-6 _col-sm-12">
+                        <div class="card-opinion_image-container">
+                            <img th:src="@{/assets/images/humains/image (4).jpg}" alt="martin-martin">
+                        </div>
+                        <div class="triangle"></div>
+                        <div class="card-opinion_text-container">
+                            <p class="text-color-reverse">C'était vraiment bon.</p>
+                            <h3 class="text-color-reverse">Martin-Martin</h3>
+                        </div>
+                    </div>
+                    <div class="card-opinion _col-6 _col-sm-12 scroll">
+                        <div class="card-opinion_image-container">
+                            <img th:src="@{/assets/images/humains/image (2).jpg}" alt="luc-edward">
+                        </div>
+                        <div class="triangle"></div>
+                        <div class="card-opinion_text-container">
+                            <p class="text-color-reverse">Les pizzas sont incroyable, je recommande chaudement, même si
+                                il
+                                fait froid lol.</p>
+                            <h3 class="text-color-reverse">Luc-Edward</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <nav th:replace=" fragments/navbarMobile :: navMobile"></nav>
+    <footer th:replace=" fragments/footer :: footer"></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        let tl = gsap.timeline({ defaults: {ease: "power4.inOut", duration: 1.8}});
+
+        tl.to('.centered-div h1', { opacity: 1, y: 0, duration: 1.8})
+        tl.to('.centered-div span', { opacity: 1, y: 0, duration: 2})
+        tl.to('.centered-div div button', { opacity: 1, y: 0, duration: 2.2})
+
+    </script>
+  </body>
+  </html>

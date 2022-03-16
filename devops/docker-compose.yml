@@ -1,0 +1,33 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_DATABASE: gestionetablissement
+      MYSQL_USER: gestionetablissement
+      MYSQL_PASSWORD: gestionetablissement
+      MYSQL_ROOT_PASSWORD: gestionetablissement
+    volumes:
+      - ./db-data:/var/lib/mysql
+    networks:
+      - spring-boot-app-network
+  spring-boot-app:
+    container_name: spring-apps
+    image: chatbrume/gestionetablissementscolaire
+    pull: true
+    depends_on:
+      - db
+    ports:
+      - 80:8080
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    networks:
+      - spring-boot-app-network
+
+networks:
+  spring-boot-app-network:
+    name: spring-boot-app-network
+    driver: bridge
